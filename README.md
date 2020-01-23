@@ -1,1 +1,0 @@
-# akiratatsuhisa.github.io
