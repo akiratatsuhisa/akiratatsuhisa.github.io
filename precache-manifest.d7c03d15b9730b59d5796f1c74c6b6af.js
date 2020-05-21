@@ -4,11 +4,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/chunk-vendors.d3b97861.css"
   },
   {
-    "revision": "120ec4e5c88c96083a0f",
+    "revision": "e4fa9c03551bb12fb869",
     "url": "/css/comparePokemons.ddb3b82c.css"
   },
   {
-    "revision": "ed2b96437d2068c3e953bcc39df155b8",
+    "revision": "30ad70e41f96c957a9c5697f737b77b2",
     "url": "/index.html"
   },
   {
@@ -16,16 +16,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about.39d877a8.js"
   },
   {
-    "revision": "189a0a9f8404f4160434",
-    "url": "/js/app.b3fc4d31.js"
+    "revision": "282697d14b5737c8b00c",
+    "url": "/js/app.c75efae2.js"
   },
   {
     "revision": "b0ba39152c598f77d1ad",
     "url": "/js/chunk-vendors.3e83bb5e.js"
   },
   {
-    "revision": "120ec4e5c88c96083a0f",
-    "url": "/js/comparePokemons.d6d1a756.js"
+    "revision": "e4fa9c03551bb12fb869",
+    "url": "/js/comparePokemons.5665181a.js"
   },
   {
     "revision": "3d1bd4a7679e812c1a10",
