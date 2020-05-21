@@ -1,14 +1,14 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b0ba39152c598f77d1ad",
-    "url": "/css/chunk-vendors.d3b97861.css"
+    "revision": "160c0bd0471d822af52f",
+    "url": "/css/chunk-vendors.70e999db.css"
   },
   {
-    "revision": "e4fa9c03551bb12fb869",
+    "revision": "3d55c1a5f5c812dc586e",
     "url": "/css/comparePokemons.ddb3b82c.css"
   },
   {
-    "revision": "30ad70e41f96c957a9c5697f737b77b2",
+    "revision": "256e25c4e63ac187869a0161d0bec0c1",
     "url": "/index.html"
   },
   {
@@ -16,16 +16,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about.39d877a8.js"
   },
   {
-    "revision": "282697d14b5737c8b00c",
-    "url": "/js/app.c75efae2.js"
+    "revision": "0f624197d06e78103b89",
+    "url": "/js/app.c1fc2279.js"
   },
   {
-    "revision": "b0ba39152c598f77d1ad",
-    "url": "/js/chunk-vendors.3e83bb5e.js"
+    "revision": "160c0bd0471d822af52f",
+    "url": "/js/chunk-vendors.847bb111.js"
   },
   {
-    "revision": "e4fa9c03551bb12fb869",
-    "url": "/js/comparePokemons.5665181a.js"
+    "revision": "3d55c1a5f5c812dc586e",
+    "url": "/js/comparePokemons.039ae9ac.js"
   },
   {
     "revision": "3d1bd4a7679e812c1a10",
