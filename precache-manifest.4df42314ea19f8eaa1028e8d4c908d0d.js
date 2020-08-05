@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/home.comparePokemons.69274b73.css"
   },
   {
-    "revision": "b017779a33ef3119c5e59e326e4e7a55",
+    "revision": "dfd40c72cf635187af08996b243312ad",
     "url": "/index.html"
   },
   {
@@ -24,8 +24,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about.bb9b4699.js"
   },
   {
-    "revision": "6123968d8d087e5bad60",
-    "url": "/js/app.8551c5fa.js"
+    "revision": "36a2d141ee7e20c16c62",
+    "url": "/js/app.ccb17661.js"
   },
   {
     "revision": "18cb0a88c31905839184",
