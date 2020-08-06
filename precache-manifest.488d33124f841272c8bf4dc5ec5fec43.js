@@ -16,7 +16,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/home.comparePokemons.69274b73.css"
   },
   {
-    "revision": "dfd40c72cf635187af08996b243312ad",
+    "revision": "69cc529aa5b79de45824",
+    "url": "/css/settings.0297cebe.css"
+  },
+  {
+    "revision": "51c44038c1b39c611f4cae0ea4466b2b",
     "url": "/index.html"
   },
   {
@@ -24,8 +28,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about.bb9b4699.js"
   },
   {
-    "revision": "36a2d141ee7e20c16c62",
-    "url": "/js/app.ccb17661.js"
+    "revision": "879f05be39bad3b56887",
+    "url": "/js/app.d54fb015.js"
   },
   {
     "revision": "18cb0a88c31905839184",
@@ -48,8 +52,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/search.df99e2e2.js"
   },
   {
-    "revision": "7b12244d18a4a113d9e7",
-    "url": "/js/settings.6b313d8a.js"
+    "revision": "69cc529aa5b79de45824",
+    "url": "/js/settings.d4486e59.js"
   },
   {
     "revision": "20ca3598505bb0ef621eba1f423e66e1",
