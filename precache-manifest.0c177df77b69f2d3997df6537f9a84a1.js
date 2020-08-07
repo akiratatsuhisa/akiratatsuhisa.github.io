@@ -4,23 +4,23 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/chunk-vendors.d1305d34.css"
   },
   {
-    "revision": "399d4e9511eb15079c29",
+    "revision": "fd23933a004e034a372e",
     "url": "/css/comparePokemons.54653210.css"
   },
   {
-    "revision": "8894204fd69b0faa7fdb",
+    "revision": "23d53d87f0403b549886",
     "url": "/css/comparePokemons~home.comparePokemons.0de7565f.css"
   },
   {
-    "revision": "8d219194e52a0824238c",
+    "revision": "64a9ec33272980bb2a5f",
     "url": "/css/home.comparePokemons.69274b73.css"
   },
   {
-    "revision": "7596542a7feeac64cfad",
-    "url": "/css/settings.faf66240.css"
+    "revision": "9a29b013a57f2d95c120",
+    "url": "/css/settings.2a5e8de1.css"
   },
   {
-    "revision": "fd29da5f0cf9948afb644a7f1ce26f67",
+    "revision": "bf6cf3249f77f1c1cb618589b949d3c5",
     "url": "/index.html"
   },
   {
@@ -28,32 +28,32 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about.bb9b4699.js"
   },
   {
-    "revision": "4c4cdee82c5dfbc682ef",
-    "url": "/js/app.723caf43.js"
+    "revision": "d58aaa58a3330b94cf39",
+    "url": "/js/app.5c389de5.js"
   },
   {
     "revision": "18cb0a88c31905839184",
     "url": "/js/chunk-vendors.e2bf10f6.js"
   },
   {
-    "revision": "399d4e9511eb15079c29",
-    "url": "/js/comparePokemons.21964dd6.js"
+    "revision": "fd23933a004e034a372e",
+    "url": "/js/comparePokemons.f00f9f18.js"
   },
   {
-    "revision": "8894204fd69b0faa7fdb",
-    "url": "/js/comparePokemons~home.comparePokemons.59c78d98.js"
+    "revision": "23d53d87f0403b549886",
+    "url": "/js/comparePokemons~home.comparePokemons.d4fd087e.js"
   },
   {
-    "revision": "8d219194e52a0824238c",
-    "url": "/js/home.comparePokemons.dc4ac3f8.js"
+    "revision": "64a9ec33272980bb2a5f",
+    "url": "/js/home.comparePokemons.c5db3290.js"
   },
   {
     "revision": "92580a43bc1f89bade09",
     "url": "/js/search.df99e2e2.js"
   },
   {
-    "revision": "7596542a7feeac64cfad",
-    "url": "/js/settings.0f1c7bee.js"
+    "revision": "9a29b013a57f2d95c120",
+    "url": "/js/settings.e6541b5d.js"
   },
   {
     "revision": "20ca3598505bb0ef621eba1f423e66e1",
