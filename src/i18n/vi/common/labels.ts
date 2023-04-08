@@ -1,0 +1,28 @@
+import { LocaleCommonLabels } from '@/i18n/type/common/labels';
+
+export const labels: LocaleCommonLabels = {
+  loading: 'Đang tải',
+  noRecord: 'Không có dữ liệu',
+  information: 'Thông tin',
+  result: 'Kết quả',
+  yes: 'Có',
+  no: 'Không',
+  cancel: 'Hủy',
+  close: 'Đóng',
+  clear: 'Xóa',
+  view: 'Xem',
+  explore: 'Khám phá',
+  create: 'Tạo',
+  update: 'Cập nhật',
+  delete: 'Xóa',
+  add: 'Thêm',
+  edit: 'Chỉnh sửa',
+  change: 'Thay đổi',
+  remove: 'Loại bỏ',
+  save: 'Lưu',
+  submit: 'Nộp',
+  send: 'Gửi',
+  search: 'Tìm kiếm',
+  refresh: 'Làm mới',
+  cancellation: 'Hủy bỏ',
+};

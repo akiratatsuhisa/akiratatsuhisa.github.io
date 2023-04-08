@@ -1,0 +1,28 @@
+import { LocaleCommonLabels } from '@/i18n/type/common/labels';
+
+export const labels: LocaleCommonLabels = {
+  loading: 'Loading',
+  noRecord: 'No record',
+  information: 'Information',
+  result: 'Result',
+  yes: 'Yes',
+  no: 'No',
+  cancel: 'Cancel',
+  close: 'Close',
+  clear: 'Clear',
+  view: 'View',
+  explore: 'Explore',
+  create: 'Create',
+  update: 'Update',
+  delete: 'Delete',
+  add: 'Add',
+  edit: 'Edit',
+  change: 'Change',
+  remove: 'Remove',
+  save: 'Save',
+  submit: 'Submit',
+  send: 'Send',
+  search: 'Search',
+  refresh: 'Refresh',
+  cancellation: 'Cancellation',
+};

@@ -1,0 +1,26 @@
+export type LocaleCommonLabels = {
+  loading: string;
+  noRecord: string;
+  information: string;
+  result: string;
+  yes: string;
+  no: string;
+  cancel: string;
+  close: string;
+  clear: string;
+  view: string;
+  explore: string;
+  create: string;
+  update: string;
+  delete: string;
+  add: string;
+  edit: string;
+  change: string;
+  remove: string;
+  save: string;
+  submit: string;
+  send: string;
+  search: string;
+  refresh: string;
+  cancellation: string;
+};

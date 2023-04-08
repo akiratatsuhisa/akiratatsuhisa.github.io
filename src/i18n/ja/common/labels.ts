@@ -1,0 +1,28 @@
+import { LocaleCommonLabels } from '@/i18n/type/common/labels';
+
+export const labels: LocaleCommonLabels = {
+  loading: '読み込み中',
+  noRecord: 'レコードがありません',
+  information: '情報',
+  result: '結果',
+  yes: 'はい',
+  no: 'いいえ',
+  cancel: 'キャンセル',
+  close: '閉じる',
+  clear: 'クリア',
+  view: '表示',
+  explore: '探検',
+  create: '登録',
+  update: '更新',
+  delete: '削除',
+  add: '追加',
+  edit: '編集',
+  change: '変更',
+  remove: '削減',
+  save: '保存',
+  submit: '提出',
+  send: '送信',
+  search: '検索',
+  refresh: 'リフレッシュ',
+  cancellation: '解除',
+};
