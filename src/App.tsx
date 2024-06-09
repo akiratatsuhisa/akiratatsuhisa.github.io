@@ -1,13 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import {
-  ChakraProvider,
-  Modal,
-  ModalOverlay,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { Modal, ModalOverlay, useColorModeValue } from '@chakra-ui/react';
 import { FC, ReactElement } from 'react';
 import {
-  BrowserRouter,
   Location,
   Navigate,
   Outlet,
@@ -39,7 +33,6 @@ import { Resume } from '@/pages/Resume';
 import { Shop } from '@/pages/Shop';
 import { Support } from '@/pages/Support';
 import { User } from '@/pages/User';
-import { theme } from '@/theme';
 
 const AppRoutes: FC = () => {
   const { isAuthenticated } = useAuth0();
@@ -204,11 +197,5 @@ export const App: FC = () => {
     return <></>;
   }
 
-  return (
-    <ChakraProvider theme={theme}>
-      <BrowserRouter>
-        <AppRoutes />
-      </BrowserRouter>
-    </ChakraProvider>
-  );
+  return <AppRoutes />;
 };

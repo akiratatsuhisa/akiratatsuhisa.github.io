@@ -1,7 +1,10 @@
 import {
+  Box,
+  Button,
   Checkbox,
   CheckboxGroup,
   CheckboxGroupProps,
+  Divider,
   Flex,
   FormControl,
   FormErrorMessage,
@@ -9,6 +12,13 @@ import {
   Image,
   Input,
   InputProps,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   Radio,
   RadioGroup,
   RadioGroupProps,
@@ -16,13 +26,16 @@ import {
   Switch,
   SwitchProps,
   Tag,
+  TagCloseButton,
   TagLabel,
+  TagRightIcon,
   Textarea,
   TextareaProps,
   Wrap,
 } from '@chakra-ui/react';
-import { ElementType, FC, ReactNode, useId } from 'react';
-import { useTranslation } from 'react-i18next';
+import { ElementType, FC, ReactNode, useId, useState } from 'react';
+import { Translation, useTranslation } from 'react-i18next';
+import { MdAdd } from 'react-icons/md';
 
 import { Enumerable } from '@/enums';
 
@@ -171,7 +184,9 @@ export const FormControlTextarea: FC<IFormControlTextareaProps> = ({
 export interface IFormControlRadioGroupProps
   extends IFormControlProps,
     IOptionsProps,
-    Omit<RadioGroupProps, 'children'> {}
+    Omit<RadioGroupProps, 'children'> {
+  isReadOnly?: boolean;
+}
 
 export const FormControlRadioGroup: FC<IFormControlRadioGroupProps> = ({
   translation,
@@ -180,6 +195,7 @@ export const FormControlRadioGroup: FC<IFormControlRadioGroupProps> = ({
   touched,
   translationOptionKeyPrefix,
   options,
+  isReadOnly,
   stack,
   children,
   ...props
@@ -198,7 +214,11 @@ export const FormControlRadioGroup: FC<IFormControlRadioGroupProps> = ({
         {children ?? (
           <Stack as={stack}>
             {options?.map((option) => (
-              <Radio key={option.value} value={option.value}>
+              <Radio
+                key={option.value}
+                value={option.value}
+                isReadOnly={isReadOnly}
+              >
                 {t(`${translationOptionKeyPrefix}.${option.translation}`)}
               </Radio>
             ))}
@@ -237,7 +257,7 @@ export const FormControlCheckboxGroup: FC<IFormControlCheckboxGroupProps> = ({
 
   return (
     <FormControl isInvalid={touched && !!error}>
-      <FormLabel> {fieldTranslation}</FormLabel>
+      <FormLabel>{fieldTranslation}</FormLabel>
 
       <CheckboxGroup {...props}>
         {children ?? (
@@ -260,7 +280,7 @@ export const FormControlCheckboxGroup: FC<IFormControlCheckboxGroupProps> = ({
   );
 };
 
-export interface IFormControlTagGroupProps
+export interface IFormControlTagsGroupProps
   extends IFormControlProps,
     IOptionsProps {
   isReadOnly?: boolean;
@@ -269,7 +289,7 @@ export interface IFormControlTagGroupProps
   onChange?: (value?: Array<string | number> | string | number) => void;
 }
 
-export const FormControlTagGroup: FC<IFormControlTagGroupProps> = ({
+export const FormControlTagsGroup: FC<IFormControlTagsGroupProps> = ({
   translation,
   error,
   payload,
@@ -314,7 +334,7 @@ export const FormControlTagGroup: FC<IFormControlTagGroupProps> = ({
 
   return (
     <FormControl isInvalid={touched && !!error}>
-      <FormLabel> {fieldTranslation}</FormLabel>
+      <FormLabel>{fieldTranslation}</FormLabel>
 
       {children ?? (
         <Wrap as={stack}>
@@ -345,5 +365,185 @@ export const FormControlTagGroup: FC<IFormControlTagGroupProps> = ({
         payload={payload}
       />
     </FormControl>
+  );
+};
+
+export interface IFormControlInputTagsGroupProps extends IFormControlProps {
+  stack?: ElementType;
+  children?: ReactNode;
+  isReadOnly?: boolean;
+  max?: number;
+  value?: Array<string>;
+  onChange?: (value: Array<string>) => void;
+}
+
+export const FormControlInputTagsGroup: FC<IFormControlInputTagsGroupProps> = ({
+  translation,
+  error,
+  payload,
+  touched,
+  stack,
+  children,
+  isReadOnly,
+  max,
+  value,
+  onChange,
+}) => {
+  const { t } = useTranslation('translation', { keyPrefix: 'common' });
+
+  const fieldTranslation = t(`fields.${translation}`);
+
+  const handleChange = (index: number | null, data?: string) => {
+    if (isReadOnly) {
+      return;
+    }
+
+    const temp = Array.isArray(value) ? [...value] : [];
+
+    if (index === null) {
+      if (data !== undefined) {
+        // insert
+        temp.push(data);
+      }
+    } else if (data !== undefined) {
+      // update
+      temp.splice(index, 1, data);
+    } else {
+      // delete
+      temp.splice(index, 1);
+    }
+
+    onChange?.(temp);
+  };
+
+  const [form, setForm] = useState<{
+    isOpen: boolean;
+    index: number | null;
+    text: string;
+  }>({
+    isOpen: false,
+    index: null,
+    text: '',
+  });
+
+  const renderModal = (
+    <Modal
+      scrollBehavior="inside"
+      isOpen={form.isOpen}
+      onClose={() => setForm((prev) => ({ ...prev, isOpen: false }))}
+      size="md"
+    >
+      <ModalOverlay />
+
+      <ModalContent
+        as="form"
+        onSubmit={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          handleChange(form.index, form.text);
+          setForm((prev) => ({ ...prev, isOpen: false }));
+        }}
+      >
+        <Translation keyPrefix="common.labels">
+          {(t) => (
+            <ModalHeader>{t(form.index === null ? 'add' : 'edit')}</ModalHeader>
+          )}
+        </Translation>
+        <ModalCloseButton />
+
+        <Box>
+          <Divider />
+        </Box>
+
+        <ModalBody as={Stack} padding="4" spacing="4">
+          <Input
+            value={form.text}
+            onChange={(event) =>
+              setForm((prev) => ({ ...prev, text: event.target.value }))
+            }
+          />
+        </ModalBody>
+
+        <Box>
+          <Divider />
+        </Box>
+
+        <Translation keyPrefix="common.labels">
+          {(t) => (
+            <ModalFooter padding="3" gap="3">
+              <Button
+                colorScheme="gray"
+                onClick={() => setForm((prev) => ({ ...prev, isOpen: false }))}
+              >
+                {t('cancel')}
+              </Button>
+
+              <Button colorScheme="green" isDisabled={!form.text} type="submit">
+                {t('save')}
+              </Button>
+            </ModalFooter>
+          )}
+        </Translation>
+      </ModalContent>
+    </Modal>
+  );
+
+  return (
+    <>
+      <FormControl isInvalid={touched && !!error}>
+        <FormLabel>{fieldTranslation}</FormLabel>
+
+        {children ?? (
+          <Wrap as={stack}>
+            {value?.map((data, index) => (
+              <Tag
+                key={index}
+                size="lg"
+                variant="solid"
+                cursor="pointer"
+                onClick={() =>
+                  !isReadOnly && setForm({ isOpen: true, index, text: data })
+                }
+              >
+                <TagLabel>{data}</TagLabel>
+
+                {!isReadOnly && (
+                  <TagCloseButton
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      handleChange(index);
+                    }}
+                  />
+                )}
+              </Tag>
+            ))}
+
+            {!isReadOnly &&
+              (max === undefined || (value?.length ?? 0) < max) && (
+                <Tag
+                  size="lg"
+                  variant="subtle"
+                  cursor="pointer"
+                  onClick={() =>
+                    !isReadOnly &&
+                    setForm({ isOpen: true, index: null, text: '' })
+                  }
+                >
+                  {t('labels.add')}
+
+                  <TagRightIcon as={MdAdd} />
+                </Tag>
+              )}
+          </Wrap>
+        )}
+
+        <CustomFormErrorMessage
+          error={error}
+          field={fieldTranslation}
+          payload={payload}
+        />
+      </FormControl>
+      {renderModal}
+    </>
   );
 };

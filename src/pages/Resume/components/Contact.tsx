@@ -68,7 +68,7 @@ const ContactForm: FC = () => {
     },
     validationSchema: Yup.object({
       name: Yup.string().required().max(255),
-      email: Yup.string().required().max(255),
+      email: Yup.string().required().max(255).email('email'),
       phone: Yup.string()
         .required()
         .matches(/^\+?\d{1,20}$/, 'phone'),

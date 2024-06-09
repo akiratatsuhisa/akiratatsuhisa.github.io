@@ -6,4 +6,5 @@ export const validations: LocaleCommonValidations = {
   phone: 'Số điện thoại không hợp lệ',
   min: '"{{field}}" phải có ít nhất {{min}} ký tự',
   max: '"{{field}}" không được vượt quá {{max}} ký tự',
+  unique: 'Các giá trị trong "{{field}}" không được trùng lặp',
 };

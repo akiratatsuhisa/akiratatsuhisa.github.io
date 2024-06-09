@@ -36,7 +36,7 @@ import * as Yup from 'yup';
 import { CommonAlertDialog } from '@/components/AlertDialog';
 import {
   FormControlInput,
-  FormControlTagGroup,
+  FormControlTagsGroup,
   FormControlTextarea,
 } from '@/components/FormControls';
 import { commonAlertProps } from '@/constants';
@@ -49,7 +49,6 @@ import {
   IUpdateProjectLocalizationRequest,
 } from '@/interfaces';
 import { services } from '@/services';
-import { parseLanguageToLanguageCode } from '@/utils';
 
 export const PageContext = createContext<{
   projectId: string;
@@ -123,7 +122,7 @@ const AddProjectLocalization: FC<{
 
         <ModalBody padding="4">
           <VStack spacing="4">
-            <FormControlTagGroup
+            <FormControlTagsGroup
               translation="languages"
               error={errors.language}
               touched={touched.language}
@@ -235,11 +234,7 @@ const InsertTab: FC<{
         isOpen={isOpen}
         onClose={onClose}
         onSubmit={(language, form) =>
-          requestUpsert(
-            projectId,
-            parseLanguageToLanguageCode(language),
-            form,
-          ).then(() => onSubmit?.())
+          requestUpsert(projectId, language, form).then(() => onSubmit?.())
         }
         excludeLanguageCodes={currentLanguageCodes}
       />
@@ -303,6 +298,7 @@ const LocalizationTabPanel: FC<{
     handleChange,
     handleSubmit,
     resetForm,
+    dirty,
   } = useFormik<IUpdateProjectLocalizationRequest>({
     initialValues: {
       title: '',
@@ -322,6 +318,9 @@ const LocalizationTabPanel: FC<{
     }),
     onSubmit: async (form) => {
       await requestUpsert(projectId, languageCode, form);
+      resetForm({
+        values: { ...form },
+      });
       onSubmit?.();
     },
   });
@@ -444,6 +443,7 @@ const LocalizationTabPanel: FC<{
               colorScheme="green"
               type="submit"
               isLoading={isLoading || isLoadingUpsert || isLoadingDelete}
+              isDisabled={!dirty}
               leftIcon={<Icon as={MdSave} />}
             >
               {t('save')}
@@ -495,9 +495,7 @@ export const LocalizationTabs: FC<{
           {data.map((localization) => (
             <LocalizationTabPanel
               key={localization.languageCode}
-              languageCode={parseLanguageToLanguageCode(
-                localization.languageCode,
-              )}
+              languageCode={localization.languageCode}
               initialValues={localization}
             />
           ))}

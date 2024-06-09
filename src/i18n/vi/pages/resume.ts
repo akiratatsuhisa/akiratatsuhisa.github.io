@@ -90,7 +90,7 @@ export const resume: LocalePagesResume = {
           {
             title: 'Học tại trường đại học HUTECH',
             description:
-              'GPA 3.4/4, hoàn thành hết tất cả các môn chuyên ngành.',
+              'GPA 3.07/4, hoàn thành hết tất cả các môn chuyên ngành.',
             period: 'từ năm 2016 đến năm 2020',
           },
           {

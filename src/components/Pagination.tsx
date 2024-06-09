@@ -35,6 +35,7 @@ export const Pagination: FC<{
       <>
         {pages.map((page) => (
           <Button
+            key={page.value}
             width="3.5"
             isActive={page.isCurrent}
             isDisabled={isLoading}
@@ -48,10 +49,10 @@ export const Pagination: FC<{
     );
   }, [isLoading, page, maxPage, size]);
 
-  const isFirstClickable = page !== 1;
-  const isPrevClickable = page - 1 >= 1;
-  const isNextClickable = page + 1 <= maxPage;
-  const isLastClickable = page !== maxPage;
+  const isFirstClickable = page > 1;
+  const isPrevClickable = page > 1;
+  const isNextClickable = page < maxPage;
+  const isLastClickable = page < maxPage;
 
   return (
     <HStack gap="1" justifyContent="center" wrap="wrap">

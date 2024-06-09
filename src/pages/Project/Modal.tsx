@@ -6,6 +6,7 @@ import {
   AccordionPanel,
   Box,
   Button,
+  Center,
   Divider,
   FlexboxProps,
   Icon,
@@ -104,7 +105,7 @@ export const Modal: FC = () => {
   }
 
   const project = data;
-  const projectLocalization = data.projectLocalizations[0];
+  const projectLocalization = data.projectLocalization;
 
   return (
     <ModalContent>
@@ -290,6 +291,46 @@ export const Modal: FC = () => {
             translationEnum="technologies"
             mapEnum={mapTechnologies}
           />
+
+          {project.others.length > 0 && (
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  <Box as="span" {...headingH2Props}>
+                    {t('others')}
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+
+              <AccordionPanel>
+                <Wrap spacing="3">
+                  {project.others.map((value) => (
+                    <Tooltip key={value} label={value}>
+                      <Box
+                        padding="2"
+                        rounded="xl"
+                        shadow="md"
+                        backgroundColor="gray.100"
+                      >
+                        <Center
+                          width="16"
+                          height="16"
+                          overflow="hidden"
+                          textOverflow="ellipsis"
+                          wordBreak="break-word"
+                          whiteSpace="pre-wrap"
+                          textColor="black"
+                        >
+                          {value}
+                        </Center>
+                      </Box>
+                    </Tooltip>
+                  ))}
+                </Wrap>
+              </AccordionPanel>
+            </AccordionItem>
+          )}
         </Accordion>
       </ModalBody>
 

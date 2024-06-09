@@ -31,7 +31,7 @@ import {
 } from '@chakra-ui/react';
 import { useFormik } from 'formik';
 import _ from 'lodash';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { Translation, useTranslation } from 'react-i18next';
 import {
   MdAdd,
@@ -221,12 +221,15 @@ const SearchConditions: FC<{
   );
 };
 
-const Record: FC<IProjectResponse & { isSortable?: boolean }> = ({
+const Record: FC<
+  IProjectResponse & { isLoading: boolean; isSortable: boolean }
+> = ({
   id,
   thumbSrc,
   projectLocalizations,
   status,
   isPublished,
+  isLoading,
   isSortable,
 }) => {
   const { t } = useTranslation('translation', { keyPrefix: 'common' });
@@ -289,6 +292,7 @@ const Record: FC<IProjectResponse & { isSortable?: boolean }> = ({
       <Td paddingY="2" paddingX="2">
         {isSortable && (
           <IconButton
+            isDisabled={isLoading}
             variant="ghost"
             icon={<Icon as={MdMenu} />}
             aria-label="sort"
@@ -299,7 +303,11 @@ const Record: FC<IProjectResponse & { isSortable?: boolean }> = ({
   );
 };
 
-const SearhResult: FC<{ data?: Array<IProjectResponse> }> = ({ data }) => {
+const SearhResult: FC<{
+  isLoading: boolean;
+  isSortable: boolean;
+  data?: Array<IProjectResponse>;
+}> = ({ isLoading, isSortable, data }) => {
   return (
     <Card flex="1 1 auto">
       <CardHeader>
@@ -343,7 +351,14 @@ const SearhResult: FC<{ data?: Array<IProjectResponse> }> = ({ data }) => {
 
             <Tbody>
               {(data?.length ?? 0) > 0 ? (
-                data?.map((record) => <Record key={record.id} {...record} />)
+                data?.map((record) => (
+                  <Record
+                    key={record.id}
+                    {...record}
+                    isLoading={isLoading}
+                    isSortable={isSortable}
+                  />
+                ))
               ) : (
                 <Translation keyPrefix="common.labels">
                   {(t) => (
@@ -368,15 +383,31 @@ export const Page: FC = () => {
     paramsOrData: [{}],
   });
 
+  const [isSortable, setIsSortable] = useState(true);
+
+  const refetch = async (form: ISearchProjectsRequest) => {
+    if (isLoading) {
+      return;
+    }
+
+    setIsSortable(isSortable);
+
+    await request(form);
+    setIsSortable(
+      _.every(_.values(form), (value) => value === '' || _.isEmpty(value)),
+    );
+  };
+
   return (
     <Container maxWidth="container.xl" paddingBottom="4" height="full">
       <VStack align="stretch" spacing="4" height="full">
-        <SearchConditions
-          isLoading={isLoading}
-          onSubmit={(values) => request(values)}
-        />
+        <SearchConditions isLoading={isLoading} onSubmit={refetch} />
 
-        <SearhResult data={data} />
+        <SearhResult
+          isLoading={isLoading}
+          isSortable={isSortable}
+          data={data}
+        />
       </VStack>
     </Container>
   );
