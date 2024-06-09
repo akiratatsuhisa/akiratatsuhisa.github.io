@@ -124,7 +124,7 @@ const View: FC = () => {
   }
 
   const project = data;
-  const projectLocalization = data.projectLocalizations[0];
+  const projectLocalization = data.projectLocalization;
 
   return (
     <>
@@ -358,6 +358,39 @@ const View: FC = () => {
                         translationEnum="technologies"
                         mapEnum={mapTechnologies}
                       />
+
+                      {project.others.length > 0 && (
+                        <Box>
+                          <Heading as="h2" {...headingH3Props}>
+                            {t('others')}
+                          </Heading>
+
+                          <Wrap spacing="3">
+                            {project.others.map((value) => (
+                              <Tooltip key={value} label={value}>
+                                <Box
+                                  padding="2"
+                                  rounded="xl"
+                                  shadow="md"
+                                  backgroundColor="gray.100"
+                                >
+                                  <Center
+                                    width={{ base: '16', md: '20' }}
+                                    height={{ base: '16', md: '20' }}
+                                    overflow="hidden"
+                                    textOverflow="ellipsis"
+                                    wordBreak="break-word"
+                                    whiteSpace="pre-wrap"
+                                    textColor="black"
+                                  >
+                                    {value}
+                                  </Center>
+                                </Box>
+                              </Tooltip>
+                            ))}
+                          </Wrap>
+                        </Box>
+                      )}
                     </Grid>
                   </AccordionPanel>
                 </AccordionItem>

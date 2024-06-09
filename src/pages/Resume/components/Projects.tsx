@@ -27,7 +27,7 @@ const Project: FC<IProjectResponse> = (props) => {
   const { navigateModal } = useBackgroundNavigate();
 
   const project = props;
-  const projectLocalization = props.projectLocalizations[0];
+  const projectLocalization = props.projectLocalization;
 
   return (
     <Card transition={cardTransition} rounded="lg" _hover={{ shadow: 'lg' }}>

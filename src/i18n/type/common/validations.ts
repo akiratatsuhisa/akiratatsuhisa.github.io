@@ -4,4 +4,5 @@ export type LocaleCommonValidations = {
   phone: string;
   max: string;
   min: string;
+  unique: string;
 };

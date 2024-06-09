@@ -90,7 +90,7 @@ export const resume: LocalePagesResume = {
         a: [
           {
             title: 'Studying at HUTECH University',
-            description: 'GPA 3.4/4, completed all major subjects.',
+            description: 'GPA 3.07/4, completed all major subjects.',
             period: 'from 2016 to 2020',
           },
           {

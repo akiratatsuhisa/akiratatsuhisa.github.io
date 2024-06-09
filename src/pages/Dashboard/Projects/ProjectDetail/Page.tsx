@@ -49,9 +49,10 @@ import { CommonAlertDialog } from '@/components/AlertDialog';
 import { CropperImageModal } from '@/components/CropperImageModal';
 import {
   FormControlInput,
+  FormControlInputTagsGroup,
   FormControlRadioGroup,
   FormControlSwitch,
-  FormControlTagGroup,
+  FormControlTagsGroup,
 } from '@/components/FormControls';
 import { PageLoading } from '@/components/Loading';
 import { commonAlertProps } from '@/constants';
@@ -426,7 +427,7 @@ const Information: FC<{
                   </GridItem>
 
                   <GridItem colSpan={{ base: 1, md: 2 }}>
-                    <FormControlTagGroup
+                    <FormControlTagsGroup
                       translation="languages"
                       multiple
                       value={values.languages}
@@ -437,7 +438,7 @@ const Information: FC<{
                   </GridItem>
 
                   <GridItem colSpan={{ base: 1, md: 2 }}>
-                    <FormControlTagGroup
+                    <FormControlTagsGroup
                       translation="frameworks"
                       multiple
                       value={values.frameworks}
@@ -448,7 +449,7 @@ const Information: FC<{
                   </GridItem>
 
                   <GridItem colSpan={{ base: 1, md: 2 }}>
-                    <FormControlTagGroup
+                    <FormControlTagsGroup
                       translation="languages"
                       multiple
                       value={values.languages}
@@ -459,12 +460,20 @@ const Information: FC<{
                   </GridItem>
 
                   <GridItem colSpan={{ base: 1, md: 2 }}>
-                    <FormControlTagGroup
+                    <FormControlTagsGroup
                       translation="technologies"
                       multiple
                       value={values.technologies}
                       translationOptionKeyPrefix="technologies"
                       options={technologies}
+                      isReadOnly
+                    />
+                  </GridItem>
+
+                  <GridItem colSpan={{ base: 1, md: 2 }}>
+                    <FormControlInputTagsGroup
+                      translation="others"
+                      value={values.others}
                       isReadOnly
                     />
                   </GridItem>

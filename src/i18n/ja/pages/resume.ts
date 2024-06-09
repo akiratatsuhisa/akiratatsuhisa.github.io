@@ -89,7 +89,7 @@ export const resume: LocalePagesResume = {
         a: [
           {
             title: 'HUTECH大学での学習',
-            description: 'GPA 3.4/4、すべての主要科目を修了。',
+            description: 'GPA 3.07/4、すべての主要科目を修了。',
             period: '2016年から2020年まで',
           },
           {

@@ -21,9 +21,10 @@ import * as Yup from 'yup';
 
 import {
   FormControlInput,
+  FormControlInputTagsGroup,
   FormControlRadioGroup,
   FormControlSwitch,
-  FormControlTagGroup,
+  FormControlTagsGroup,
 } from '@/components/FormControls';
 import {
   databases,
@@ -56,7 +57,7 @@ export const ProjectModal: FC<{
       isPublished: false,
       startDate: '',
       endDate: '',
-      status: 'INITIALIZE',
+      status: 'initialize',
       languages: [],
       frameworks: [],
       databases: [],
@@ -189,7 +190,7 @@ export const ProjectModal: FC<{
             options={projectStatus}
           />
 
-          <FormControlTagGroup
+          <FormControlTagsGroup
             translation="languages"
             error={errors.languages}
             touched={touched.languages}
@@ -203,7 +204,7 @@ export const ProjectModal: FC<{
             options={programingLanguages}
           />
 
-          <FormControlTagGroup
+          <FormControlTagsGroup
             translation="frameworks"
             error={errors.frameworks}
             touched={touched.frameworks}
@@ -217,7 +218,7 @@ export const ProjectModal: FC<{
             options={frameworks}
           />
 
-          <FormControlTagGroup
+          <FormControlTagsGroup
             translation="databases"
             error={errors.databases}
             touched={touched.databases}
@@ -231,7 +232,7 @@ export const ProjectModal: FC<{
             options={databases}
           />
 
-          <FormControlTagGroup
+          <FormControlTagsGroup
             translation="technologies"
             error={errors.technologies}
             touched={touched.technologies}
@@ -243,6 +244,17 @@ export const ProjectModal: FC<{
             }}
             translationOptionKeyPrefix="technologies"
             options={technologies}
+          />
+
+          <FormControlInputTagsGroup
+            translation="others"
+            error={errors.others}
+            touched={touched.others}
+            value={values.others}
+            onChange={async (value) => {
+              await setFieldValue('others', value);
+              setFieldTouched('others', true);
+            }}
           />
         </ModalBody>
 

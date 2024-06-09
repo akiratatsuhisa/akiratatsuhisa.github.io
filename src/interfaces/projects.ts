@@ -26,6 +26,7 @@ export interface IProjectResponse {
   createdAt: string;
   updatedAt: string;
   projectLocalizations: Array<IProjectLocalizationResponse>;
+  projectLocalization: IProjectLocalizationResponse;
 }
 
 export interface IProjectLocalizationDetailResponse {
@@ -59,6 +60,7 @@ export interface IProjectDetailResponse {
   createdAt: string;
   updatedAt: string;
   projectLocalizations: Array<IProjectLocalizationDetailResponse>;
+  projectLocalization: IProjectLocalizationDetailResponse;
 }
 
 export interface IUpsertProjectRequest {

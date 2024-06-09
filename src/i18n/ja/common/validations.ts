@@ -6,4 +6,5 @@ export const validations: LocaleCommonValidations = {
   phone: '無効な電話番号です',
   min: '「{{field}}」は{{min}}文字以上で入力してください',
   max: '「{{field}}」は{{max}}文字以内で入力してください',
+  unique: '「{{field}}」の値が重複してはいけません',
 };
