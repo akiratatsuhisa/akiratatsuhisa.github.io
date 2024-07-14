@@ -5,7 +5,6 @@ export type LocaleLayouts = {
       menu: {
         resume: string;
         blogs: string;
-        shop: string;
       };
       profile: {
         title: string;

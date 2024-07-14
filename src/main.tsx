@@ -24,13 +24,13 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       cacheLocation="localstorage"
       clientId={import.meta.env.VITE_APP_AUTH0_CLIENT_ID}
       domain={import.meta.env.VITE_APP_AUTH0_DOMAIN}
-      onRedirectCallback={onRedirectCallback}
       authorizationParams={{
         audience: import.meta.env.VITE_APP_AUTH0_AUDIENCE,
         redirect_uri: window.location.origin + '/callback',
         scope: 'profile email',
       }}
       useRefreshTokens={true}
+      onRedirectCallback={onRedirectCallback}
     >
       <ChakraProvider theme={theme}>
         <App />

@@ -9,7 +9,6 @@ export const layouts: LocaleLayouts = {
       menu: {
         resume: 'Resume',
         blogs: 'Blogs',
-        shop: 'Shop',
       },
       profile: {
         title: 'Profile',

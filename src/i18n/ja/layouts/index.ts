@@ -9,7 +9,6 @@ export const layouts: LocaleLayouts = {
       menu: {
         resume: '履歴書',
         blogs: 'ブログ',
-        shop: 'ショップ',
       },
       profile: {
         title: 'プロフィール',

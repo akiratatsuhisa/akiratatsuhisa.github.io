@@ -30,7 +30,6 @@ import { Legal } from '@/pages/Legal';
 import { Post } from '@/pages/Post';
 import { Project } from '@/pages/Project';
 import { Resume } from '@/pages/Resume';
-import { Shop } from '@/pages/Shop';
 import { Support } from '@/pages/Support';
 import { User } from '@/pages/User';
 
@@ -82,7 +81,6 @@ const AppRoutes: FC = () => {
 
           // main
           { path: '/blogs', element: <Blogs.Page /> },
-          { path: '/shop', element: <Shop.Page /> },
           { path: '/users/:nickname', element: <User.Page /> },
           { path: '/projects/:slug', element: <Project.Page /> },
 

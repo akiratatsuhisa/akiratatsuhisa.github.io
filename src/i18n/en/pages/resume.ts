@@ -90,7 +90,7 @@ export const resume: LocalePagesResume = {
         a: [
           {
             title: 'Studying at HUTECH University',
-            description: 'GPA 3.07/4, completed all major subjects.',
+            description: 'GPA 3.04/4, completed all major subjects.',
             period: 'from 2016 to 2020',
           },
           {
@@ -99,29 +99,30 @@ export const resume: LocalePagesResume = {
             period: 'around mid-2020',
           },
           {
-            title: 'Self-study and review at home',
+            title: 'Self-study and practice at home',
             description:
-              'Mainly focused on Node.js, concentrating on frameworks like Express.js, Vue.js, and React.js.',
+              'Mainly focused on Node.js, with an emphasis on frameworks like Express.js, Vue.js, and React.js.',
             period: 'until early 2022',
           },
         ],
         b: [
           {
-            title: 'Internship at Company B',
-            description: 'Internship for 2 months as a fullstack Node.js role',
+            title: 'Intern at Co., Ltd. Briswell Vietnam',
+            description:
+              'Interned for 2 months, with training in the first month and a project assessment in the final month.',
             period: 'March 2022',
           },
           {
-            title: 'Officially employed at Company B',
+            title: 'Officially employed at Co., Ltd. Briswell Vietnam',
             description:
-              'Promoted in November 2022 (as a middle developer) and November 2023 (as a senior developer)',
+              'Promoted in November 2022 (middle developer role) and November 2023 (senior developer role).',
             period: 'May 2022',
           },
           {
-            title: 'Seeking new opportunities',
+            title: 'Seeking new job opportunities',
             description:
-              'Developing my career and challenging myself in a new working environment',
-            period: 'Current',
+              'Resigned to seek a new work environment to further my career development.',
+            period: 'From mid-July to the present',
           },
         ],
       },

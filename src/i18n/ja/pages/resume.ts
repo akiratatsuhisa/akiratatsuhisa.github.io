@@ -50,7 +50,7 @@ export const resume: LocalePagesResume = {
     about: {
       title: '私のことを少し',
       description:
-        '私はĐặng Minh Đạtです。常にキャリアパスで新しい挑戦を求め、新しい技術技術を学び続けています。経験豊富な同僚と共に学び、スキルを開発することが好きです。',
+        '私はĐặng Minh Đạtです。常にキャリアパスで新しい挑戦を求め、新しい技術を学び続けています。経験豊富な同僚と共に学び、スキルを伸ばすことを楽しんでいます。',
       action: '履歴書をダウンロード',
       mainItems: {
         age: {
@@ -89,7 +89,7 @@ export const resume: LocalePagesResume = {
         a: [
           {
             title: 'HUTECH大学での学習',
-            description: 'GPA 3.07/4、すべての主要科目を修了。',
+            description: 'GPA 3.04/4、すべての主要科目を修了。',
             period: '2016年から2020年まで',
           },
           {
@@ -98,28 +98,30 @@ export const resume: LocalePagesResume = {
             period: '2020年中頃',
           },
           {
-            title: '自宅での自己学習とレビュー',
+            title: '自宅での自己学習と練習',
             description:
-              '主にNode.jsに焦点を当て、Express.js、Vue.js、およびReact.jsなどのフレームワークに集中しています。',
+              '主にNode.jsに集中し、Express.js、Vue.js、React.jsなどのフレームワークに重点を置いています。',
             period: '2022年初頭まで',
           },
         ],
         b: [
           {
-            title: '会社Bでのインターンシップ',
-            description: 'フルスタックNode.js役割として2か月のインターンシップ',
+            title: '株式会社ブリスウェルベトナムでのインターンシップ',
+            description:
+              '2ヶ月間のインターンシップで、最初の月に研修を受け、最後の月にプロジェクト評価を行いました。',
             period: '2022年3月',
           },
           {
-            title: '会社Bでの正式雇用',
+            title: '株式会社ブリスウェルベトナムでの正式雇用',
             description:
-              '2022年11月（ミドルデベロッパーとして）および2023年11月（シニアデベロッパーとして）に昇進',
+              '2022年11月に昇進（ミドルデベロッパーの役割）、2023年11月に昇進（シニアデベロッパーの役割）。',
             period: '2022年5月',
           },
           {
-            title: '新しい機会を探しています',
-            description: '新しい職場でのキャリアの発展と自己挑戦',
-            period: '現在',
+            title: '新しい仕事の機会を探しています',
+            description:
+              'キャリアの発展のために新しい職場環境を探すために辞職しました。',
+            period: '2024年7月中旬から現在まで',
           },
         ],
       },

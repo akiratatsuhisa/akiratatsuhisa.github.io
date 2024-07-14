@@ -22,7 +22,7 @@ import {
 } from '@chakra-ui/react';
 import { ElementType, FC, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaAddressCard, FaLayerGroup, FaShoppingCart } from 'react-icons/fa';
+import { FaAddressCard, FaLayerGroup } from 'react-icons/fa';
 import {
   MdDarkMode,
   MdDashboard,
@@ -251,11 +251,6 @@ const menus: Array<{
     translation: 'blogs',
     icon: FaLayerGroup,
     to: { pathname: '/blogs' },
-  },
-  {
-    translation: 'shop',
-    icon: FaShoppingCart,
-    to: { pathname: '/shop' },
   },
 ];
 

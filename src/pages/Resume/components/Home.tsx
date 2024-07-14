@@ -13,6 +13,8 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MdExplore } from 'react-icons/md';
 
+import { useHash } from '@/hooks';
+
 const bounceKeyframes = keyframes`
        0%, 100% {
         transform: translateY(-10%);
@@ -30,6 +32,11 @@ const animationBounce = `${bounceKeyframes} 1s infinite`;
 export const Home: FC = () => {
   const { t } = useTranslation('translation', {
     keyPrefix: 'pages.resume.sections.home',
+  });
+
+  const { onClickHash } = useHash({
+    defaultHash: 'home',
+    hashQuery: 'section.section',
   });
 
   return (
@@ -58,6 +65,7 @@ export const Home: FC = () => {
               rightIcon={<MdExplore />}
               variant="outline"
               width={{ base: 'full', sm: 'auto' }}
+              onClick={() => onClickHash('about')}
             >
               {t('action')}
             </Button>

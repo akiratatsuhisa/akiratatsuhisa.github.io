@@ -90,7 +90,7 @@ export const resume: LocalePagesResume = {
           {
             title: 'Học tại trường đại học HUTECH',
             description:
-              'GPA 3.07/4, hoàn thành hết tất cả các môn chuyên ngành.',
+              'GPA 3.04/4, hoàn thành hết tất cả các môn chuyên ngành.',
             period: 'từ năm 2016 đến năm 2020',
           },
           {
@@ -107,21 +107,23 @@ export const resume: LocalePagesResume = {
         ],
         b: [
           {
-            title: 'Thực tập tại công ty B',
-            description: 'Thực tập 2 tháng với vai trò fullstack Node.js',
+            title: 'Thực tập tại công ty TNHH Briswell Vietnam',
+            description:
+              'Thực tập trong 2 tháng, được đào tạo trong tháng đầu và làm bài kiểm tra trong tháng cuối.',
             period: 'tháng 3 năm 2022',
           },
           {
-            title: 'Được nhận việc chính thức tại công ty B',
+            title:
+              'Được nhận việc chính thức tại công ty TNHH Briswell Vietnam',
             description:
-              'Được thăng chức vào tháng 11 năm 2022 (vai trò middle developer) và tháng 11 năm 2023 (vai trò senior developer)',
+              'Được thăng chức vào tháng 11 năm 2022 (vai trò middle developer) và tháng 11 năm 2023 (vai trò senior developer).',
             period: 'tháng 5 năm 2022',
           },
           {
-            title: 'Đang tìm kiếm cơ hội mới',
+            title: 'Tìm kiếm cơ hội việc làm mới',
             description:
-              'Phát triển sự nghiệp của mình và thách thức bản thân trong môi trường làm việc mới',
-            period: 'Hiện tại',
+              'Xin nghỉ việc để tìm kiếm môi trường làm việc mới để phát triển sự nghiệp.',
+            period: 'giữa tháng 7 năm 2024 đến hiện tại',
           },
         ],
       },
@@ -158,16 +160,16 @@ export const resume: LocalePagesResume = {
           'Tôi cũng trau dồi những kỹ năng mềm quan trọng trong công việc để tạo ra một môi trường làm việc tích cực và hiệu quả. Đồng thời, tôi đảm bảo rằng công việc được hoàn thành đúng theo kế hoạch.',
         items: {
           teamwork: {
-            label: 'Teamwork',
+            label: 'Làm việc nhóm',
           },
           timeManagement: {
-            label: 'Time Management',
+            label: 'Quản lý thời gian',
           },
           communication: {
-            label: 'Communication',
+            label: 'Giao tiếp',
           },
           creativity: {
-            label: 'Creativity',
+            label: 'Sáng tạo',
           },
         },
       },
