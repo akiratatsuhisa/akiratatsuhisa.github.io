@@ -21,7 +21,7 @@ import dayjs from 'dayjs';
 import _ from 'lodash';
 import { ElementType, FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { Link as ReactRouterLink, To } from 'react-router-dom';
 
@@ -149,11 +149,11 @@ const socialContent: { translation: string; items: Array<ISocialItemProps> } = {
       icon: FaGithub,
       to: 'https://github.com/akiratatsuhisa',
     },
-    {
-      translation: 'twitter',
-      icon: FaTwitter,
-      to: 'https://twitter.com/Haru180898',
-    },
+    // {
+    //   translation: 'twitter',
+    //   icon: FaTwitter,
+    //   to: 'https://twitter.com/Haru180898',
+    // },
     {
       translation: 'linkedin',
       icon: FaLinkedin,
