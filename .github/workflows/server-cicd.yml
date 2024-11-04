@@ -30,11 +30,9 @@ jobs:
 
       - name: Setup Wrangler Config
         run: |
-          cd server
-          cat <<EOF > wrangler.toml
+          cat <<EOF > server/wrangler.toml
           ${{ secrets.WRANGLER_CONFIG }}
           EOF
-          cd ..
 
       - name: Build & Deploy Worker
         uses: cloudflare/wrangler-action@v3
