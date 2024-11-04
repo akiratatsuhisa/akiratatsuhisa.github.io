@@ -237,7 +237,7 @@ export const Contact: FC = () => {
               objectFit="cover"
               objectPosition="bottom"
               position="absolute"
-              src="/images/resume/about-me.jpg"
+              src="/images/resume/contact.jpg"
               width="full"
             />
           </Box>

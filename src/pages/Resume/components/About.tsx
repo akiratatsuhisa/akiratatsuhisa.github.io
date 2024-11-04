@@ -236,7 +236,7 @@ export const About: FC = () => {
               objectFit="cover"
               objectPosition="bottom"
               position="absolute"
-              src="/images/resume/about-me.jpg"
+              src="/images/resume/about-me-1.jpg"
               width="full"
             />
             <Image
@@ -246,7 +246,7 @@ export const About: FC = () => {
               objectPosition="bottom"
               opacity="0"
               position="absolute"
-              src="/images/resume/hobby.jpg"
+              src="/images/resume/about-me-2.jpg"
               transition="all 0.25s ease-in-out"
               width="full"
             />
