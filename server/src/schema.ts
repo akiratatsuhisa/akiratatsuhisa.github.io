@@ -1,12 +1,11 @@
 import { integer, sqliteTable, text, unique } from 'drizzle-orm/sqlite-core';
-
 import {
   Database,
   Framework,
   Language,
   ProjectStatus,
   Technology,
-} from './utils';
+} from 'shared';
 
 export const contacts = sqliteTable('contacts', {
   id: integer('id').primaryKey({ autoIncrement: true }),

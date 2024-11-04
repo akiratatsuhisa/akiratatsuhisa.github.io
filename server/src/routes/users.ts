@@ -1,8 +1,8 @@
 import { Hono, HonoEnv } from 'hono';
 import _ from 'lodash';
+import { Role } from 'shared';
 
 import { authorize } from '../middlewares';
-import { Role } from '../utils';
 
 export const usersRoute = (app: Hono<HonoEnv>) => {
   const prefix = '/api/users';

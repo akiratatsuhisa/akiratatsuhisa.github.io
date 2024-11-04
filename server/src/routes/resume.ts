@@ -1,9 +1,9 @@
 import { Hono, HonoEnv } from 'hono';
 import { validator } from 'hono/validator';
-import { paginationSchema, resumeContactSchema } from 'shared';
+import { paginationSchema, resumeContactSchema, Role } from 'shared';
 
 import { authorize } from '../middlewares';
-import { Role, validateSchema } from '../utils';
+import { validateSchema } from '../utils';
 
 export const resumeRoute = (app: Hono<HonoEnv>) => {
   const prefix = '/api/resume';

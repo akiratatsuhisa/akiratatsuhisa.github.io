@@ -1,9 +1,9 @@
 import dayjs from 'dayjs';
 import _ from 'lodash';
+import { LanguageCode } from 'shared';
 import * as Yup from 'yup';
 
 import { HttpBadDto } from '../utils/errors';
-import { LanguageCode } from './enum';
 
 export const parseQuery = (value?: string | string[]) => {
   const data = _.isArray(value) ? _.first(value) : value;

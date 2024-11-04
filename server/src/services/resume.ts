@@ -1,9 +1,9 @@
 import * as drizzle from 'drizzle-orm';
 import { Context, HonoEnv } from 'hono';
 import _ from 'lodash';
+import { PaginationSchema, ResumeContactSchema } from 'shared';
 
 import { contacts } from '../schema';
-import { PaginationSchema, ResumeContactSchema } from '../validators';
 import { BaseService } from './base';
 
 export class ResumeService extends BaseService {

@@ -1,0 +1,24 @@
+name: Test shared package
+
+on:
+  push:
+    paths:
+      - shared/**
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+
+      - name: Install dependencies
+        run: |
+          yarn
+
+      - name: Run test eslint and prettier
+        run: yarn workspace shared test

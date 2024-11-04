@@ -3,6 +3,7 @@ import { validator } from 'hono/validator';
 import _ from 'lodash';
 import {
   deleteProjectImageSchema,
+  Role,
   sortProjectImageSchema,
   uploadProjectImageSchema,
   upsertProjectLocalizationSchema,
@@ -16,7 +17,6 @@ import {
   parseQuery,
   regexId,
   regexLanguageCode,
-  Role,
   validateSchema,
 } from '../utils';
 

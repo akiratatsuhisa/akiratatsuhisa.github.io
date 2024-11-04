@@ -2,21 +2,18 @@ import * as drizzle from 'drizzle-orm';
 import { alias } from 'drizzle-orm/sqlite-core';
 import { Context, HonoEnv } from 'hono';
 import _ from 'lodash';
-import { v4 as uuidv4 } from 'uuid';
-
-import { projectLocalizations, projects } from '../schema';
-import {
-  HttpNotFound,
-  LanguageCode,
-  parseDateTime,
-  ProjectStatus,
-} from '../utils';
 import {
   DeleteProjectImageSchema,
+  LanguageCode,
+  ProjectStatus,
   SortProjectImageSchema,
   UpsertProjectLocalizationSchema,
   UpsertProjectSchema,
-} from '../validators';
+} from 'shared';
+import { v4 as uuidv4 } from 'uuid';
+
+import { projectLocalizations, projects } from '../schema';
+import { HttpNotFound, parseDateTime } from '../utils';
 import { BaseService } from './base';
 
 const projectsSelect = {

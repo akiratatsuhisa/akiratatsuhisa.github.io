@@ -1,7 +1,8 @@
 import { MiddlewareHandler } from 'hono';
 import _ from 'lodash';
+import { Role } from 'shared';
 
-import { HttpForbidden, HttpUnauthorized, Role } from '../utils';
+import { HttpForbidden, HttpUnauthorized } from '../utils';
 
 export const authorize: (requiredRoles?: Array<Role>) => MiddlewareHandler =
   (requiredRoles?: Array<string>) => async (context, next) => {
