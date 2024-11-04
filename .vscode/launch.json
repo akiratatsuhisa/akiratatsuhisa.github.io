@@ -5,12 +5,38 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Wrangler",
+      "type": "node",
+      "request": "attach",
+      "port": 9229,
+      "cwd": "${workspaceRoot}/server",
+      "resolveSourceMapLocations": null,
+      "attachExistingChildren": false,
+      "autoAttachChildProcesses": false
+    },
+    {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
+      "name": "BE",
+      "cwd": "${workspaceRoot}/server",
       "skipFiles": ["<node_internals>/**"],
       "runtimeExecutable": "yarn",
       "runtimeArgs": ["dev"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "FE",
+      "cwd": "${workspaceRoot}/client",
+      "skipFiles": ["<node_internals>/**"],
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": ["dev"]
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Compound",
+      "configurations": ["Wrangler", "BE", "FE"]
     }
   ]
 }

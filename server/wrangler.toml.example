@@ -1,0 +1,40 @@
+name = "akiratatsuhisa-edge"
+compatibility_date = "2023-12-01"
+main = "src/index.ts"
+
+[vars]
+AUTH0_DOMAIN=
+AUTH0_AUDIENCE=
+AUTH0_ISSUER=
+
+AUTH_OAUTH2_URL_TOKEN=
+AUTH_MANAGEMENT_CLIENT_ID=
+AUTH_MANAGEMENT_CLIENT_SECRET=
+AUTH_MANAGEMENT_URL=
+
+DROPBOX_OAUTH2_URL_TOKEN=
+DROPBOX_CLIENT_ID=
+DROPBOX_CLIENT_SECRET=
+DROPBOX_REFRESH_TOKEN=
+
+[[kv_namespaces]]
+binding = "KV_NAMESPACE"
+id = 
+preview_id= 
+
+# [[r2_buckets]]
+# binding = 
+# bucket_name = 
+
+[[d1_databases]]
+binding = "DB"
+database_name = 
+database_id = 
+migrations_dir='drizzle'
+
+# [ai]
+# binding = "AI"
+
+
+# [triggers]
+# crons = ["* * * * *"]

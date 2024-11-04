@@ -5,7 +5,6 @@ import {
   Flex,
   Heading,
   Image,
-  keyframes,
   Text,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
@@ -14,20 +13,6 @@ import { useTranslation } from 'react-i18next';
 import { MdExplore } from 'react-icons/md';
 
 import { useHash } from '@/hooks';
-
-const bounceKeyframes = keyframes`
-       0%, 100% {
-        transform: translateY(-10%);
-        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-      }
-      50% {
-        transform: translateY(0);
-        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-      }
-    }
-  `;
-
-const animationBounce = `${bounceKeyframes} 1s infinite`;
 
 export const Home: FC = () => {
   const { t } = useTranslation('translation', {
@@ -60,7 +45,6 @@ export const Home: FC = () => {
 
           <Box>
             <Button
-              animation={animationBounce}
               as={motion.button}
               rightIcon={<MdExplore />}
               variant="outline"
