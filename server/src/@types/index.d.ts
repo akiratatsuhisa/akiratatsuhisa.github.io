@@ -1,5 +1,4 @@
 import { drizzle } from 'drizzle-orm/d1';
-import { Flags, Message, Schema } from 'yup';
 
 import { Bindings } from '../constants';
 import { IIdentityUser } from '../interfaces';
@@ -17,17 +16,6 @@ declare module 'hono' {
 
   interface HonoEnv {
     Bindings: Bindings;
-  }
-}
-
-declare module 'yup' {
-  interface ArraySchema<
-    TIn extends any[] | null | undefined,
-    TContext,
-    TDefault = undefined,
-    TFlags extends Flags = '',
-  > extends Schema<TIn, TContext, TDefault, TFlags> {
-    unique(msg?: Message): ArraySchema<TIn, TContext, TDefault, TFlags>;
   }
 }
 

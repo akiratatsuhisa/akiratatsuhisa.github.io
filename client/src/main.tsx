@@ -1,6 +1,5 @@
 import '@/index.css';
 import '@/i18n';
-import '@/utils/yup';
 
 import { AppState, Auth0Provider } from '@auth0/auth0-react';
 import { ChakraProvider } from '@chakra-ui/react';

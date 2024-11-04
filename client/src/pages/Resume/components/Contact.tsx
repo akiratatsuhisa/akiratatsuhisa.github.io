@@ -18,7 +18,7 @@ import {
 import { useFormik } from 'formik';
 import { FC, useState } from 'react';
 import { Translation, useTranslation } from 'react-i18next';
-import * as Yup from 'yup';
+import { resumeContactSchema } from 'shared';
 
 import { useAxios } from '@/hooks';
 import { services } from '@/services';
@@ -66,14 +66,7 @@ const ContactForm: FC = () => {
       phone: '',
       message: '',
     },
-    validationSchema: Yup.object({
-      name: Yup.string().required().max(255),
-      email: Yup.string().required().max(255).email('email'),
-      phone: Yup.string()
-        .required()
-        .matches(/^\+?\d{1,20}$/, 'phone'),
-      message: Yup.string().required().max(1024),
-    }),
+    validationSchema: resumeContactSchema,
     onSubmit: async (values) => {
       setFormState('loading');
       try {

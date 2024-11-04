@@ -1,4 +1,12 @@
 import _ from 'lodash';
+import {
+  Database,
+  Framework,
+  Language,
+  LanguageCode,
+  ProjectStatus,
+  Technology,
+} from 'shared';
 
 import JpFlag from '@/assets/flags/jp.svg';
 import UsFlag from '@/assets/flags/us.svg';
@@ -42,16 +50,25 @@ import GraphqlLogo from '@/assets/programing/technologies/graphql.svg';
 import NginxLogo from '@/assets/programing/technologies/nginx.svg';
 import SocketioLogo from '@/assets/programing/technologies/socketio.svg';
 
-export type Enumerable = {
-  translation: string;
-  value: string;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type Enumerable<T = any> = {
+  value: T;
   icon: string;
 };
 
-export const languages: Array<Enumerable> = [
-  { translation: 'en', value: 'en', icon: UsFlag },
-  { translation: 'vi', value: 'vi', icon: VnFlag },
-  { translation: 'ja', value: 'ja', icon: JpFlag },
+export const languages: Array<Enumerable<LanguageCode>> = [
+  {
+    value: LanguageCode.English,
+    icon: UsFlag,
+  },
+  {
+    value: LanguageCode.Vietnamese,
+    icon: VnFlag,
+  },
+  {
+    value: LanguageCode.Japaneses,
+    icon: JpFlag,
+  },
 ];
 
 export const mapLanguages = _.fromPairs(
@@ -59,84 +76,80 @@ export const mapLanguages = _.fromPairs(
 );
 
 export const projectStatus: Array<
-  Omit<Enumerable, 'icon'> & { colorSchema: string }
+  Omit<Enumerable<ProjectStatus>, 'icon'> & { colorSchema: string }
 > = [
-  { translation: 'initialize', value: 'initialize', colorSchema: 'brand' },
-  { translation: 'onGoing', value: 'onGoing', colorSchema: 'blue' },
-  { translation: 'maintain', value: 'maintain', colorSchema: 'orange' },
-  { translation: 'delay', value: 'delay', colorSchema: 'yellow' },
-  { translation: 'cancel', value: 'cancel', colorSchema: 'red' },
-  { translation: 'publish', value: 'publish', colorSchema: 'green' },
+  { value: ProjectStatus.Initialize, colorSchema: 'brand' },
+  { value: ProjectStatus.OnGoing, colorSchema: 'blue' },
+  { value: ProjectStatus.Maintain, colorSchema: 'orange' },
+  { value: ProjectStatus.Delay, colorSchema: 'yellow' },
+  { value: ProjectStatus.Cancel, colorSchema: 'red' },
+  { value: ProjectStatus.Publish, colorSchema: 'green' },
 ];
 
 export const mapProjectStatus = _.fromPairs(
   _.map(projectStatus, (obj) => [obj.value, obj]),
 );
 
-export const programingLanguages: Array<Enumerable> = [
-  { translation: 'csharp', value: 'csharp', icon: CsharpLogo },
-  { translation: 'css', value: 'css', icon: CssLogo },
-  { translation: 'dart', value: 'dart', icon: DartLogo },
-  { translation: 'go', value: 'go', icon: GoLogo },
-  { translation: 'html', value: 'html', icon: HtmlLogo },
-  { translation: 'javascript', value: 'javascript', icon: JavascriptLogo },
-  { translation: 'python', value: 'python', icon: PythonLogo },
-  { translation: 'sass', value: 'sass', icon: SassLogo },
-  { translation: 'typescript', value: 'typescript', icon: TypescriptLogo },
+export const programingLanguages: Array<Enumerable<Language>> = [
+  { value: Language.CSharp, icon: CsharpLogo },
+  { value: Language.CSS, icon: CssLogo },
+  { value: Language.Dart, icon: DartLogo },
+  { value: Language.Go, icon: GoLogo },
+  { value: Language.Html, icon: HtmlLogo },
+  { value: Language.Javascript, icon: JavascriptLogo },
+  { value: Language.Python, icon: PythonLogo },
+  { value: Language.Sass, icon: SassLogo },
+  { value: Language.Typescript, icon: TypescriptLogo },
 ];
 
 export const mapProgramingLanguages = _.fromPairs(
   _.map(programingLanguages, (obj) => [obj.value, obj]),
 );
 
-export const frameworks: Array<Enumerable> = [
-  { translation: 'angular', value: 'angular', icon: AngularLogo },
-  { translation: 'bootstrap', value: 'bootstrap', icon: BootstrapLogo },
-  { translation: 'django', value: 'django', icon: DjangoLogo },
-  { translation: 'dotnetcore', value: 'dotnetcore', icon: DotnetcoreLogo },
-  { translation: 'express', value: 'express', icon: ExpressLogo },
-  { translation: 'flutter', value: 'flutter', icon: FlutterLogo },
-  { translation: 'next', value: 'next', icon: NextLogo },
-  { translation: 'nest', value: 'nest', icon: NestLogo },
-  { translation: 'nodejs', value: 'nodejs', icon: NodejsLogo },
-  { translation: 'nuxt', value: 'nuxt', icon: NuxtLogo },
-  { translation: 'react', value: 'react', icon: ReactLogo },
-  { translation: 'tailwindcss', value: 'tailwindcss', icon: TailwindcssLogo },
-  { translation: 'vue', value: 'vue', icon: VueLogo },
+export const frameworks: Array<Enumerable<Framework>> = [
+  { value: Framework.Angular, icon: AngularLogo },
+  { value: Framework.Bootstrap, icon: BootstrapLogo },
+  { value: Framework.Django, icon: DjangoLogo },
+  { value: Framework.Dotnetcore, icon: DotnetcoreLogo },
+  { value: Framework.Express, icon: ExpressLogo },
+  { value: Framework.Flutter, icon: FlutterLogo },
+  { value: Framework.Next, icon: NextLogo },
+  { value: Framework.Nest, icon: NestLogo },
+  { value: Framework.Nodejs, icon: NodejsLogo },
+  { value: Framework.Nuxt, icon: NuxtLogo },
+  { value: Framework.React, icon: ReactLogo },
+  { value: Framework.Tailwindcss, icon: TailwindcssLogo },
+  { value: Framework.Vue, icon: VueLogo },
 ];
 
 export const mapFrameworks = _.fromPairs(
   _.map(frameworks, (obj) => [obj.value, obj]),
 );
 
-export const databases: Array<Enumerable> = [
-  {
-    translation: 'elasticsearch',
-    value: 'ELASTICSEARCH',
-    icon: ElasticsearchLogo,
-  },
-  { translation: 'mongodb', value: 'mongodb', icon: MongodbLogo },
-  { translation: 'mysql', value: 'mysql', icon: MysqlLogo },
-  { translation: 'neo4j', value: 'neo4j', icon: Neo4jLogo },
-  { translation: 'postgresql', value: 'postgresql', icon: PostgresqlLogo },
-  { translation: 'redis', value: 'redis', icon: RedisLogo },
-  { translation: 'sqlite', value: 'sqlite', icon: SqliteLogo },
+export const databases: Array<Enumerable<Database>> = [
+  { value: Database.Elasticsearch, icon: ElasticsearchLogo },
+  { value: Database.Mongodb, icon: MongodbLogo },
+  { value: Database.Mysql, icon: MysqlLogo },
+  { value: Database.Neo4j, icon: Neo4jLogo },
+  { value: Database.Postgresql, icon: PostgresqlLogo },
+  { value: Database.Redis, icon: RedisLogo },
+  { value: Database.Sqlite, icon: SqliteLogo },
 ];
 
 export const mapDatabases = _.fromPairs(
   _.map(databases, (obj) => [obj.value, obj]),
 );
 
-export const technologies: Array<Enumerable> = [
-  { translation: 'aws', value: 'aws', icon: AwsLogo },
-  { translation: 'azure', value: 'azure', icon: AzureLogo },
-  { translation: 'docker', value: 'docker', icon: DockerLogo },
-  { translation: 'eslint', value: 'eslint', icon: EslintLogo },
-  { translation: 'figma', value: 'figma', icon: FigmaLogo },
-  { translation: 'github', value: 'github', icon: GithubLogo },
-  { translation: 'graphql', value: 'graphql', icon: GraphqlLogo },
-  { translation: 'nginx', value: 'nginx', icon: NginxLogo },
-  { translation: 'socketio', value: 'socketio', icon: SocketioLogo },
+export const technologies: Array<Enumerable<Technology>> = [
+  { value: Technology.Aws, icon: AwsLogo },
+  { value: Technology.Azure, icon: AzureLogo },
+  { value: Technology.Docker, icon: DockerLogo },
+  { value: Technology.Eslint, icon: EslintLogo },
+  { value: Technology.Figma, icon: FigmaLogo },
+  { value: Technology.Github, icon: GithubLogo },
+  { value: Technology.Graphql, icon: GraphqlLogo },
+  { value: Technology.Nginx, icon: NginxLogo },
+  { value: Technology.Socketio, icon: SocketioLogo },
 ];
 
 export const mapTechnologies = _.fromPairs(

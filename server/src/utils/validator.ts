@@ -1,6 +1,8 @@
 import dayjs from 'dayjs';
 import _ from 'lodash';
+import * as Yup from 'yup';
 
+import { HttpBadDto } from '../utils/errors';
 import { LanguageCode } from './enum';
 
 export const parseQuery = (value?: string | string[]) => {
@@ -63,3 +65,10 @@ export const parseLanguageCode = (languageCode?: unknown): LanguageCode => {
       throw new Error('Invalid Language Code');
   }
 };
+
+export const validateSchema =
+  <S extends Yup.ObjectSchema<any>>(schema: S) =>
+  async (value: any) =>
+    schema
+      .validate(value, { abortEarly: false })
+      .catch(({ errors }) => Promise.reject(new HttpBadDto('schema', errors)));

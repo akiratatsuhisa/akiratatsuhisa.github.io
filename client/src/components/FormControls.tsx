@@ -54,7 +54,7 @@ const CustomFormErrorMessage: FC<ICustomFormErrorMessageProps> = ({
     keyPrefix: 'common.validations',
   });
 
-  const errors = typeof error === 'string' ? [error] : error ?? [];
+  const errors = typeof error === 'string' ? [error] : (error ?? []);
 
   return (
     <>
@@ -219,7 +219,7 @@ export const FormControlRadioGroup: FC<IFormControlRadioGroupProps> = ({
                 value={option.value}
                 isReadOnly={isReadOnly}
               >
-                {t(`${translationOptionKeyPrefix}.${option.translation}`)}
+                {t(`${translationOptionKeyPrefix}.${option.value}`)}
               </Radio>
             ))}
           </Stack>
@@ -264,7 +264,7 @@ export const FormControlCheckboxGroup: FC<IFormControlCheckboxGroupProps> = ({
           <Stack as={stack}>
             {options?.map((option) => (
               <Checkbox key={option.value} value={option.value}>
-                {t(`${translationOptionKeyPrefix}.${option.translation}`)}
+                {t(`${translationOptionKeyPrefix}.${option.value}`)}
               </Checkbox>
             ))}
           </Stack>
@@ -352,7 +352,7 @@ export const FormControlTagsGroup: FC<IFormControlTagsGroupProps> = ({
                 <Image src={option.icon} height="1.5rem" ml="-1" mr="2" />
               )}
               <TagLabel>
-                {t(`${translationOptionKeyPrefix}.${option.translation}`)}
+                {t(`${translationOptionKeyPrefix}.${option.value}`)}
               </TagLabel>
             </Tag>
           ))}

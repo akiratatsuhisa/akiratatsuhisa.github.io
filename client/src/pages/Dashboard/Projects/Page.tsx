@@ -268,7 +268,7 @@ const Record: FC<
       </Td>
 
       <Td paddingY="2" paddingX="3">
-        {t(`projectStatus.${mapProjectStatus[status].translation}`)}
+        {t(`projectStatus.${mapProjectStatus[status].value}`)}
       </Td>
 
       <Td paddingY="2" paddingX="3">

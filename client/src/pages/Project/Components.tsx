@@ -16,7 +16,7 @@ export const ProjectStatus: FC<{ value: string } & TagProps> = ({
 
   return (
     <Tag colorScheme={projectStatus.colorSchema} {...props}>
-      {t(projectStatus.translation)}
+      {t(projectStatus.value)}
     </Tag>
   );
 };

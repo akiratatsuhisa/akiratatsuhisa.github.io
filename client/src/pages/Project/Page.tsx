@@ -86,7 +86,7 @@ const Items: FC<{
             {values.map((value) => (
               <Tooltip
                 key={value}
-                label={t(`${translationEnum}.${mapEnum[value].translation}`)}
+                label={t(`${translationEnum}.${mapEnum[value].value}`)}
               >
                 <Box
                   padding="2"

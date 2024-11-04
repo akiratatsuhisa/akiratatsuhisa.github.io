@@ -1,6 +1,13 @@
 import { Hono, HonoEnv } from 'hono';
 import { validator } from 'hono/validator';
 import _ from 'lodash';
+import {
+  deleteProjectImageSchema,
+  sortProjectImageSchema,
+  uploadProjectImageSchema,
+  upsertProjectLocalizationSchema,
+  upsertProjectSchema,
+} from 'shared';
 
 import { authorize } from '../middlewares';
 import {
@@ -10,15 +17,8 @@ import {
   regexId,
   regexLanguageCode,
   Role,
-} from '../utils';
-import {
-  deleteProjectImageSchema,
-  sortProjectImageSchema,
-  uploadProjectImageSchema,
-  upsertProjectLocalizationSchema,
-  upsertProjectSchema,
   validateSchema,
-} from '../validators';
+} from '../utils';
 
 export const projectsRoute = (app: Hono<HonoEnv>) => {
   const prefix = '/api/projects';

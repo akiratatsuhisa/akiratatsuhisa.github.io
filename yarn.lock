@@ -3660,30 +3660,18 @@ __metadata:
     "@chakra-ui/react": "npm:^2.8.2"
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.5"
-    "@types/lodash": "npm:^4.17.5"
     "@types/react": "npm:^18.3.3"
     "@types/react-dom": "npm:^18.3.0"
-    "@types/uuid": "npm:^9.0.8"
-    "@typescript-eslint/eslint-plugin": "npm:^7.12.0"
-    "@typescript-eslint/parser": "npm:^7.12.0"
     "@vitejs/plugin-react": "npm:^4.3.0"
     axios: "npm:^1.7.2"
-    dayjs: "npm:^1.11.11"
-    eslint: "npm:^8.56.0"
-    eslint-config-prettier: "npm:^9.1.0"
-    eslint-plugin-import: "npm:^2.29.1"
-    eslint-plugin-prettier: "npm:^5.1.3"
     eslint-plugin-react-hooks: "npm:^4.6.2"
     eslint-plugin-react-refresh: "npm:^0.4.7"
-    eslint-plugin-simple-import-sort: "npm:^12.1.0"
     formik: "npm:^2.4.6"
     framer-motion: "npm:^11.2.10"
     i18next: "npm:^23.11.5"
     i18next-browser-languagedetector: "npm:^8.0.0"
     localforage: "npm:^1.10.0"
-    lodash: "npm:^4.17.21"
     match-sorter: "npm:^6.3.4"
-    prettier: "npm:3.3.1"
     react: "npm:^18.3.1"
     react-advanced-cropper: "npm:^0.19.6"
     react-dom: "npm:^18.3.1"
@@ -3693,12 +3681,9 @@ __metadata:
     react-router-dom: "npm:^6.23.1"
     sass: "npm:^1.77.4"
     sort-by: "npm:^1.2.0"
-    typescript: "npm:^5.4.5"
     usehooks-ts: "npm:^3.1.0"
-    uuid: "npm:^9.0.1"
     vite: "npm:^5.2.13"
     vite-plugin-pwa: "npm:^0.20.0"
-    yup: "npm:^1.4.0"
   languageName: unknown
   linkType: soft
 
@@ -6762,15 +6747,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:3.3.1":
-  version: 3.3.1
-  resolution: "prettier@npm:3.3.1"
-  bin:
-    prettier: bin/prettier.cjs
-  checksum: 10c0/c25a709c9f0be670dc6bcb190b622347e1dbeb6c3e7df8b0711724cb64d8647c60b839937a4df4df18e9cfb556c2b08ca9d24d9645eb5488a7fc032a2c4d5cb3
-  languageName: node
-  linkType: hard
-
 "prettier@npm:^3.3.1":
   version: 3.3.3
   resolution: "prettier@npm:3.3.3"
@@ -7368,6 +7344,23 @@ __metadata:
 "root-workspace-0b6124@workspace:.":
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
+  dependencies:
+    "@types/lodash": "npm:^4.17.5"
+    "@types/uuid": "npm:^9.0.8"
+    "@typescript-eslint/eslint-plugin": "npm:^7.12.0"
+    "@typescript-eslint/parser": "npm:^7.12.0"
+    dayjs: "npm:^1.11.11"
+    eslint: "npm:^8.56.0"
+    eslint-config-prettier: "npm:^9.1.0"
+    eslint-plugin-import: "npm:^2.29.1"
+    eslint-plugin-prettier: "npm:^5.1.3"
+    eslint-plugin-simple-import-sort: "npm:^12.1.0"
+    lodash: "npm:^4.17.21"
+    prettier: "npm:^3.3.1"
+    shared: "workspace:^"
+    typescript: "npm:^5.4.5"
+    uuid: "npm:^9.0.1"
+    yup: "npm:^1.4.0"
   languageName: unknown
   linkType: soft
 
@@ -7485,28 +7478,13 @@ __metadata:
   resolution: "server@workspace:server"
   dependencies:
     "@cloudflare/workers-types": "npm:^4.20240605.0"
-    "@types/lodash": "npm:^4.17.5"
     "@types/node": "npm:^20.14.2"
-    "@types/uuid": "npm:^9.0.8"
-    "@typescript-eslint/eslint-plugin": "npm:^7.12.0"
-    "@typescript-eslint/parser": "npm:^7.12.0"
-    dayjs: "npm:^1.11.11"
     drizzle-kit: "npm:^0.22.6"
     drizzle-orm: "npm:^0.31.2"
-    eslint: "npm:^8.56.0"
-    eslint-config-prettier: "npm:^9.1.0"
-    eslint-plugin-import: "npm:^2.29.1"
-    eslint-plugin-prettier: "npm:^5.1.3"
-    eslint-plugin-simple-import-sort: "npm:^12.1.0"
     hono: "npm:^4.4.4"
     jose: "npm:^5.4.0"
-    lodash: "npm:^4.17.21"
-    prettier: "npm:^3.3.1"
     ts-node: "npm:^10.9.2"
-    typescript: "npm:^5.4.5"
-    uuid: "npm:^9.0.1"
     wrangler: "npm:^3.60.0"
-    yup: "npm:^1.4.0"
   languageName: unknown
   linkType: soft
 
@@ -7535,6 +7513,12 @@ __metadata:
   checksum: 10c0/fce59f90696c450a8523e754abb305e2b8c73586452619c2bad5f7bf38c7b6b4651895c9db895679c5bef9554339cf3ef1c329b66ece3eda7255785fbe299316
   languageName: node
   linkType: hard
+
+"shared@workspace:^, shared@workspace:shared":
+  version: 0.0.0-use.local
+  resolution: "shared@workspace:shared"
+  languageName: unknown
+  linkType: soft
 
 "shebang-command@npm:^2.0.0":
   version: 2.0.0

@@ -230,7 +230,7 @@ export const Footer: FC = () => {
                   src={
                     _.find(
                       languageContent.items,
-                      ({ translation }) => translation === i18n.language,
+                      ({ value: translation }) => translation === i18n.language,
                     )?.icon
                   }
                   height="6"
@@ -255,8 +255,8 @@ export const Footer: FC = () => {
                 onChange={(value) => i18n.changeLanguage(value as string)}
                 type="radio"
               >
-                {languageContent.items.map(({ translation, icon }) => (
-                  <MenuItemOption key={translation} value={translation}>
+                {languageContent.items.map(({ value, icon }) => (
+                  <MenuItemOption key={value} value={value}>
                     <Flex gap="2" alignItems="center" cursor="pointer">
                       <Text
                         flex="1 0 auto"
@@ -264,8 +264,8 @@ export const Footer: FC = () => {
                         opacity="0.8"
                         _hover={{ opacity: 1 }}
                       >
-                        {t(`common.languages.${translation}`, {
-                          lng: translation,
+                        {t(`common.languages.${value}`, {
+                          lng: value,
                         })}
                       </Text>
                       <Image src={icon} height="6" rounded="sm" shadow="md" />

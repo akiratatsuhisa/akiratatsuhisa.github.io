@@ -14,10 +14,9 @@ import {
 } from '@chakra-ui/react';
 import dayjs from 'dayjs';
 import { useFormik } from 'formik';
-import _ from 'lodash';
 import { FC, useEffect } from 'react';
 import { Translation } from 'react-i18next';
-import * as Yup from 'yup';
+import { upsertProjectSchema } from 'shared';
 
 import {
   FormControlInput,
@@ -64,33 +63,7 @@ export const ProjectModal: FC<{
       technologies: [],
       others: [],
     },
-    validationSchema: Yup.object({
-      isPublished: Yup.boolean().required(),
-      startDate: Yup.date().nullable().optional(),
-      endDate: Yup.date().nullable().optional(),
-      status: Yup.string().required().oneOf(_.map(projectStatus, 'value')),
-      languages: Yup.array(
-        Yup.string().required().oneOf(_.map(programingLanguages, 'value')),
-      )
-        .required()
-        .unique(),
-      frameworks: Yup.array(
-        Yup.string().required().oneOf(_.map(frameworks, 'value')),
-      )
-        .required()
-        .unique(),
-      databases: Yup.array(
-        Yup.string().required().oneOf(_.map(databases, 'value')),
-      )
-        .required()
-        .unique(),
-      technologies: Yup.array(
-        Yup.string().required().oneOf(_.map(technologies, 'value')),
-      )
-        .required()
-        .unique(),
-      others: Yup.array(Yup.string().required()).required().unique(),
-    }),
+    validationSchema: upsertProjectSchema,
     onSubmit: (form, helper) => {
       helper.resetForm();
       onSubmit(form);

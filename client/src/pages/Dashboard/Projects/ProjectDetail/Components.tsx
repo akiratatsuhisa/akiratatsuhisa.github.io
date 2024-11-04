@@ -31,6 +31,7 @@ import _ from 'lodash';
 import { createContext, FC, forwardRef, useContext, useEffect } from 'react';
 import { Translation } from 'react-i18next';
 import { MdAddCircle, MdRemoveCircle, MdSave } from 'react-icons/md';
+import { LanguageCode, upsertProjectLocalizationSchema } from 'shared';
 import * as Yup from 'yup';
 
 import { CommonAlertDialog } from '@/components/AlertDialog';
@@ -50,6 +51,7 @@ import {
 } from '@/interfaces';
 import { services } from '@/services';
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const PageContext = createContext<{
   projectId: string;
   isLoading: boolean;
@@ -82,11 +84,13 @@ const AddProjectLocalization: FC<{
       title: '',
       slug: '',
     },
-    validationSchema: Yup.object({
-      language: Yup.string().required().oneOf(_.map(languages, 'value')),
-      title: Yup.string().required().max(255),
-      slug: Yup.string().required().max(255),
-    }),
+    validationSchema: upsertProjectLocalizationSchema
+      .pick(['title', 'slug'])
+      .concat(
+        Yup.object({
+          language: Yup.string().required().oneOf(_.values(LanguageCode)),
+        }),
+      ),
     onSubmit: ({ language, ...form }, helper) => {
       onSubmit(language, form);
       helper.resetForm();
@@ -249,7 +253,7 @@ const LocalizationTab =
       const tabProps = useTab({ ...props, ref });
       const styles = useMultiStyleConfig('Tabs', tabProps);
 
-      const { translation, icon } = mapLanguages[languageValue];
+      const { value, icon } = mapLanguages[languageValue];
 
       return (
         <Translation keyPrefix="common.languages">
@@ -265,7 +269,7 @@ const LocalizationTab =
               }
             >
               <Text as="span" flex="0 0 auto">
-                {t(translation)}
+                {t(value)}
               </Text>
             </Button>
           )}
@@ -308,14 +312,7 @@ const LocalizationTabPanel: FC<{
       website: '',
       source: '',
     },
-    validationSchema: Yup.object({
-      title: Yup.string().required().max(255),
-      slug: Yup.string().required().max(255),
-      description: Yup.string().optional().max(1024),
-      client: Yup.string().optional().max(255),
-      website: Yup.string().optional().max(255),
-      source: Yup.string().optional().max(255),
-    }),
+    validationSchema: upsertProjectLocalizationSchema,
     onSubmit: async (form) => {
       await requestUpsert(projectId, languageCode, form);
       resetForm({
