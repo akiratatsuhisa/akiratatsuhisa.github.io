@@ -98,11 +98,11 @@ const footerMenus: Array<IFooterMenuProps> = [
         to: 'https://workers.cloudflare.com/',
         target: '_blank',
       },
-      {
-        translation: 'mongoDBAtlas',
-        to: 'https://www.mongodb.com/ja-jp/atlas/database',
-        target: '_blank',
-      },
+      // {
+      //   translation: 'mongoDBAtlas',
+      //   to: 'https://www.mongodb.com/ja-jp/atlas/database',
+      //   target: '_blank',
+      // },
     ],
   },
 ];

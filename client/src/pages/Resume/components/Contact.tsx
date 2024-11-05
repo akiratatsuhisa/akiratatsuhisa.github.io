@@ -73,7 +73,7 @@ const ContactForm: FC = () => {
         await requestSendContact(values);
 
         setFormState('completed');
-      } catch (error) {
+      } catch {
         setFormState('initial');
       }
     },
