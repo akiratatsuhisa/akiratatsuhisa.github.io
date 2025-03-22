@@ -5,11 +5,12 @@ import axios, {
   AxiosProgressEvent,
   AxiosRequestConfig,
   AxiosResponse,
+  GenericAbortSignal,
   HttpStatusCode,
   isAxiosError,
 } from 'axios';
 import _ from 'lodash';
-import { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { useLifecycleState } from '@/hooks';
@@ -29,6 +30,7 @@ export type UseAxiosOptions<Req> = {
   displayMessageFromException?: boolean;
   autoRedirectByHttpStatus?: Array<HttpStatusCode>;
   message?: string;
+  signal?: GenericAbortSignal;
   paramsOrData?: Req;
 };
 
@@ -59,6 +61,7 @@ export const useAxios = <
       HttpStatusCode.InternalServerError,
     ],
     message,
+    signal,
   } = options;
 
   const { getAccessTokenSilently } = useAuth0();
@@ -80,19 +83,19 @@ export const useAxios = <
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [error, setError] = useState<any>();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const percentTimeout = useRef<number>();
+
   const onProgress = (event: AxiosProgressEvent): void => {
     setPercent(Math.round((event.loaded / (event.total ?? 0)) * 100));
   };
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let percentTimeout: any;
 
   const request = async (...paramsOrData: Req): Promise<Res> => {
     if (isLoading) {
       throw new Error('on progress');
     }
-    if (percentTimeout) {
-      clearTimeout(percentTimeout);
+    if (percentTimeout.current) {
+      clearTimeout(percentTimeout.current);
     }
 
     setIsLoading(true);
@@ -123,6 +126,7 @@ export const useAxios = <
           headers: requestHeaders,
           onUploadProgress: onProgress,
           onDownloadProgress: onProgress,
+          signal,
         },
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ...(paramsOrData as any),
@@ -221,10 +225,10 @@ export const useAxios = <
       throw exception;
     } finally {
       setIsLoading(false);
-      percentTimeout = setTimeout(
+      percentTimeout.current = setTimeout(
         () => setPercent(undefined),
         delayPercentFinished,
-      );
+      ) as unknown as number;
     }
   };
 

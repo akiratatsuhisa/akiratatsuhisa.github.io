@@ -39,6 +39,7 @@ export default defineConfig({
     // }),
   ],
   server: {
+    port: 7100,
     watch: {
       usePolling: true,
     },
